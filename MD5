@@ -1,4 +1,4 @@
-ea404ef6d3c7a339eec08c4844fa020e *DESCRIPTION
+f432c2ce1a872b1b2795dddbc93017d9 *DESCRIPTION
 a4e38579eeef3ed8cabfd2a75d8648a9 *NAMESPACE
 e6fadfd8a9679e603d91621736633726 *R/CheckBestmatches.R
 d272a2921f58fff35868f9e79bb0dd86 *R/CheckImx.R
@@ -61,6 +61,6 @@ c791df47c33b505d9ca18730c7531ca3 *src/addRowWiseC.cpp
 fadf944914c63127d2f81b86436e4871 *src/bestmatchC.cpp
 a61c2bab6d07aebd631c335ab149b7ff *src/bestmatchesC.cpp
 3c65345365d6c70b3cc2880bbeff83ac *src/esomTrainedWeightVectorsConeC.cpp
-4648722dd847cbe3d254186c431098ec *src/esomTrainedWeightVectorsGaussC.cpp
+ee88e1a18212deb7286e05d4f391b995 *src/esomTrainedWeightVectorsGaussC.cpp
 891673762c66a6dbbb09b5a825b246a1 *src/esomTrainedWeightVectorsMexicanHatC.cpp
 9a4acffeae9873b6b9e4ee537e42d0df *src/registerDynamicSymbol.c

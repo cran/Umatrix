@@ -8,12 +8,12 @@ void esomTrainedWeightVectorsGaussC(NumericMatrix WeightVectors, NumericVector D
 
   int Stddevs = 2;
 
-  double Gaussnorm = (2.0 * pow(Radius + 1,2)) / pow(Stddevs,2);
+  double Gaussnorm = (2.0 * std::pow(Radius + 1,2)) / std::pow(Stddevs,2);
   int l = indices.length();
 
   for(int j=0; j < l; j++){
     int ind = indices[j] - 1;
-    double Scaling = exp((-pow(((double)DistancesToBm[j]),2))/Gaussnorm);
+    double Scaling = std::exp((-std::pow(((double)DistancesToBm[j]),2))/Gaussnorm);
 
     //Rcout << WeightVectors(ind,0) << ", " << WeightVectors(ind,1) << " mit "<< Scaling << std::endl;
 
