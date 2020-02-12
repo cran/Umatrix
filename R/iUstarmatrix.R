@@ -310,7 +310,26 @@ iUstarmatrix <- function(Weights = NULL, Lines = NULL, Columns = NULL, Data=NULL
 
     output$DistNeighHistPlot <- renderPlot({
       if(is.null(BestMatches)) return()
-      GGDistancesPlot <- PDEplot(as.vector(neighbourDistances), title="Distances of Delaunay Graph")$ggPlot
+      
+      Data = neighbourDistances
+      # simple pde plot
+      # radius
+      distvec = (stats::dist(as.matrix(Data)))
+      paretoRadius = quantile(distvec, 18/100, type = 8, na.rm = TRUE)
+      paretoRadius = paretoRadius * 4 / length(Data)^0.2
+      # no of bins
+      iqr = quantile(Data, 0.75) - quantile(Data, 0.25)
+      obw = 3.49 * (min(sd(Data), iqr/1.349) / nrow(Data)^(1/3))
+      noOfBins = max((max(Data) - min(Data)) / obw, 10)
+      # density
+      kernels = as.vector(seq(min(Data), max(Data), length.out = noOfBins))
+      inRad = sapply(kernels, function(k)   (Data >= (k - paretoRadius)) & (Data <= (k + paretoRadius)))
+      nrInRad = as.vector(colSums(inRad))
+      normv = pracma::trapz(kernels, nrInRad)
+      dens = nrInRad / normv
+      # plot itself
+      GGDistancesPlot = ggplot2::ggplot(data  = data.frame(x = kernels, y = dens), ggplot2::aes_string("x", "y")) + ggplot2::geom_line() + ggplot2::ggtitle("Distances of Delaunay Graph")
+      
       GGDistancesPlot = GGDistancesPlot + geom_vline(xintercept = val$Pradius) +
         geom_vline(xintercept = RadiusByEM, colour="violet")
       GGDistancesPlot

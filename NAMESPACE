@@ -14,7 +14,6 @@ importFrom("shinyjs","hide","useShinyjs","toggle", "hidden", "enable", "disable"
 import(stats)
 import("deldir")
 import("geometry")
-import("AdaptGauss")
 import(plyr)
 importFrom("fields","in.poly")
 importFrom("graphics", "axis","lines", "par", "plot", "plot.new", "points", "title","hist")
@@ -29,6 +28,8 @@ importFrom("graphics", "contour", "image", "plot.window", "polygon","rasterImage
 importFrom("utils", "browseURL")
 import(abind)
 import(pdist)
+importFrom("AdaptGauss", "EMGauss", "Intersect2Mixtures")
+importFrom("pracma", "trapz")
 
 useDynLib(Umatrix,.registration=TRUE)
 
