@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // addRowWiseC
 NumericMatrix addRowWiseC(NumericMatrix WeightVectors, NumericVector DataPoint);
 RcppExport SEXP _Umatrix_addRowWiseC(SEXP WeightVectorsSEXP, SEXP DataPointSEXP) {

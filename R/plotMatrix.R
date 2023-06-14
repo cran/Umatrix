@@ -12,6 +12,8 @@ plotMatrix <- function(Matrix = NULL, BestMatches=NULL, Cls = NULL, ClsColors=NU
  else if(ColorStyle == "Empty") Colormap = rep("white", 100)
  else stop("ColorStyle not found.")
 
+# if(!is.null(Imx)) Imx = Imx[nrow(Imx):1,]
+
 
 # v <- plotMatrix()
 # Draws a plot of given Umatrix
@@ -71,13 +73,13 @@ plotMatrix <- function(Matrix = NULL, BestMatches=NULL, Cls = NULL, ClsColors=NU
     RemoveOcean = FALSE
     TransparentOcean = FALSE
   }
-  
+
   #########
   #########
 
   if(is.null(Matrix))
     stop("Matrix needs to be given")
-  
+
   if(!is.matrix(Matrix)){
     stop("Matrix has to be of type matrix")
   }
@@ -264,15 +266,15 @@ plotMatrix <- function(Matrix = NULL, BestMatches=NULL, Cls = NULL, ClsColors=NU
   stat_contour(aes_string(z='z'), data=dfMatrix2,bins=Nrlevels,size = 0.25,color='black',alpha=alpha,na.rm = F)+ #80% der Laufzeit wird fuer konturen benoetigt
   ylab("Lines (y)")+xlab("Columns (x)")
 
-  #MatrixPlot = MatrixPlot + scale_y_reverse()
+  #MatrixPlot = MatrixPlot
 
 
   if(!DrawLegend) MatrixPlot <- MatrixPlot + theme(legend.position="none")
 
   if(FixedRatio)
-    MatrixPlot <- MatrixPlot + coord_fixed(1,xlim=c(0.5,ncols+0.5),ylim=c(0.5,nrows+0.5), expand = 0) + scale_y_reverse()
+    MatrixPlot <- MatrixPlot + coord_fixed(1,xlim=c(0.5,ncols+0.5),ylim=c(nrows+0.5,0.5), expand=0)#c(0.5,nrows+0.5), expand = 0)#+ coord_trans(y='reverse')# + scale_y_reverse()
   else
-    MatrixPlot <- MatrixPlot + coord_cartesian(xlim=c(0.5,ncols+0.5),ylim=c(nrows+0.5,0.5), expand = 0) + scale_y_reverse()
+    MatrixPlot <- MatrixPlot + coord_cartesian(xlim=c(0.5,ncols+0.5),ylim=c(nrows+0.5,0.5), expand=0)#c(nrows+0.5,0.5), expand = 0)#+coord_trans(y='reverse')# + scale_y_reverse()
 
   if(Clean){
     if(is.null(Title)){
