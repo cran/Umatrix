@@ -19,7 +19,7 @@
 	\item{ShiftToHighestDensity}{If True, the Umatrix will be shifted so that the point with highest density will be at the center}
 	\item{InitMethod}{name of the method that will be used to choose initializations
 	Valid Inputs: "uni_min_max": uniform distribution with minimum and maximum from sampleData
-	"norm_mean_2std": normal distribuation based on mean and standard deviation of sampleData}
+	"norm_mean_std": normal distribuation based on mean and standard deviation of sampleData}
 	\item{Key}{Vector of numeric keys matching the datapoints. Will be added to Bestmatches}
 	\item{UmatrixForEsom}{If TRUE, Umatrix based on resulting ESOM is calculated and returned}
 }
@@ -30,6 +30,7 @@
 	\item{Lines}{Height of grid}
 	\item{Columns}{Width of grid}
 	\item{Toroid}{TRUE if grid is a toroid}
+	\item{JumpingDataPointsHist}{Nr of DataPoints that jumped to a different BestMatch in every epoch}
 }
 
 \description{The ESOM (emergent self organizing map) algorithm as defined by [Ultsch 1999]. A set of weigths(neurons) on a two-dimensional grid get trained to adapt the given datastructure. The weights will be used to project data on a two-dimensional space, by seeking the BestMatches for every datapoint.}

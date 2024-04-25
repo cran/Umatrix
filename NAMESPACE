@@ -8,6 +8,8 @@ export("pmatrixForEsom")
 export("showMatrix3D")
 export("umatrixForEsom")
 export("ustarmatrixCalc")
+export("calculate_Delauny_radius")
+export("generate_data")
 
 import(shiny)
 importFrom("shinyjs","hide","useShinyjs","toggle", "hidden", "enable", "disable")

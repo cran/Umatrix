@@ -19,6 +19,7 @@ List with
   \item{Weights}{List of weights}
   \item{Toroid}{True if a toroid grid was used}
   \item{EsomDetails}{Further details describing the chosen ESOM parameters}
+  \item{JumpingDataPointsHist}{Number of Datapoints that jumped to another neuron in each epoch}
 }
 
 \references{

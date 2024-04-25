@@ -6,6 +6,7 @@ iEsomTrain <- function(Data=NULL, BestMatches=NULL, Cls=NULL, Key = NULL, Toroid
   # Columns <- V$Columns
   # Epochs <- V$Epochs
   # Weights <- V$Weights
+  # JumpingDataPointsHist <- V$JumpingDataPointsHist
   #
   # INPUT
   # Data            Data that will be used to learn
@@ -31,6 +32,7 @@ iEsomTrain <- function(Data=NULL, BestMatches=NULL, Cls=NULL, Key = NULL, Toroid
   FilePath = NULL
   DataName = NULL
   EsomDetails<-list()
+  JumpingDataPointsHist = c()
 
   if(!is.null(BestMatches)) fixedBestMatches = TRUE
 
@@ -248,6 +250,7 @@ actionButton("quit", QuitButtonText)
                        EndRadius=lradius1, NeighbourhoodCooling=input$coolingRadius, LearningRateCooling=input$coolingLearning,
                        NeighbourhoodFunction=neighbourhoodFunction, Toroid=Toroid, ShinyProgress = progress, InitMethod=initFunction, Key = Key, UmatrixForEsom=F)
       EsomDetails<<-list(StartLearningRate=lrate0, EndLearningRate=lrate1,StartRadius=lradius0, EndRadius=lradius1,NeighbourhoodCooling="linear", LearningRateCooling="linear", NeighbourhoodFunction=neighbourhoodFunction)
+      JumpingDataPointsHist <<- trainSOM$JumpingDataPointsHist
 
       if(!fixedBestMatches){
         BestMatches <<- trainSOM$BestMatches
@@ -312,13 +315,13 @@ actionButton("quit", QuitButtonText)
     session$onSessionEnded(function() {
       stopApp(list(Umatrix=Umatrix, BestMatches=BestMatches, Lines = Lines,
                    Columns = Columns, Epochs = Epochs, Weights=Weights, Toroid = Toroid,
-                   EsomDetails = EsomDetails))
+                   EsomDetails = EsomDetails, JumpingDataPointsHist = JumpingDataPointsHist))
     })
 
     observeEvent(input$quit, {
       stopApp(list(Umatrix=Umatrix, BestMatches=BestMatches, Lines = Lines,
                    Columns = Columns, Epochs = Epochs, Weights=Weights, Toroid = Toroid,
-                   EsomDetails = EsomDetails))
+                   EsomDetails = EsomDetails, JumpingDataPointsHist = JumpingDataPointsHist))
     })
   }))
 

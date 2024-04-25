@@ -29,7 +29,7 @@ esomTrain <- function(Data, Lines=50, Columns=82, Epochs=24, Toroid=TRUE, Neighb
 #								    from sampleData
 #						    uni_mean_2std <- uniform distribution based on mean and standard
 #								     deviation of sampleData
-#						    norm_mean_2std <- normal distribuation based on mean and standard
+#						    norm_mean_std <- normal distribuation based on mean and standard
 #								     deviation of sampleData
 # Key(1:n)    Key Matching the data
 # OUTPUT
@@ -37,6 +37,7 @@ esomTrain <- function(Data, Lines=50, Columns=82, Epochs=24, Toroid=TRUE, Neighb
 # BestMatches(1:m,2)		      Projected BestMatches
 # NeuronWeights(1:m,1:n)              List of trained weights
 # EsomNeurons(1:Lines, 1:Columns, 1:m)   Trained Weights in Wts format (DEPRECATED!)
+# JumpingDataPointsHist(1:n)   the number of datapoints that have changed BestMatch in each epoch
 # author: Florian Lerch
 # details: A Toroid can be considered an area, where opposing "borders" are connected
 
@@ -44,12 +45,15 @@ esomTrain <- function(Data, Lines=50, Columns=82, Epochs=24, Toroid=TRUE, Neighb
 
   grid <- esomInit(Data,Lines,Columns, InitMethod)
 
-    x <- esomTrainOnline(grid, Data, StartRadius, EndRadius,
+    trained_res <- esomTrainOnline(grid, Data, StartRadius, EndRadius,
 		       Columns,Lines,
 		       StartLearningRate, EndLearningRate,
                        NeighbourhoodFunction, Toroid,
 		       Epochs, NeighbourhoodCooling,
 		       LearningRateCooling, ShinyProgress = ShinyProgress)
+   x <- trained_res$WeightVectors
+   JumpingDataPointsHist = trained_res$JumpingDataPointsHist
+
   if(!is.null(ShinyProgress))
     ShinyProgress$set(message = "Generating Umatrix", value = 0)
 
@@ -87,5 +91,5 @@ esomTrain <- function(Data, Lines=50, Columns=82, Epochs=24, Toroid=TRUE, Neighb
     Umatrix = umatrixForEsom(x, Lines, Columns, Toroid)
 
   list(BestMatches = projection, Weights = x, Lines = Lines, Columns = Columns,
-       Toroid = Toroid, Umatrix = Umatrix)
+       Toroid = Toroid, Umatrix = Umatrix, JumpingDataPointsHist = JumpingDataPointsHist)
 }

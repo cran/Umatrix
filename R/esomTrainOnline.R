@@ -23,7 +23,9 @@ esomTrainOnline<-function(WeightVectors,Data, StartRadius=10, EndRadius=1, Colum
 # LearningRateCooling		      cooling method for learningRate. "linear" is the only available option at the moment.
 # ShinyProgress          generate progress output for shiny if Progress Object is given
 # OUTPUT
-# result: WeightVectors(1:m,1:n)      the adjusted Weight Vectors
+# result: list of
+#    - WeightVectors(1:m,1:n)      the adjusted Weight Vectors
+#    - JumpingDataPointsHist(1:n)   the number of datapoints that have changed BestMatch in each epoch
 # author: Florian Lerch
 # esomTrainOnline(WeightVectors, Data)
 
@@ -53,10 +55,15 @@ esomTrainOnline<-function(WeightVectors,Data, StartRadius=10, EndRadius=1, Colum
   # initialize Radius and LearningRate
   Radius = StartRadius
   LearningRate = StartLearningRate
+  JumpingDataPointsHist = c()
 
   # initialize Progress Object for shiny
   if(!is.null(ShinyProgress))
     ShinyProgress$set(message = "Train Esom", value = 0)
+
+  persistentData = Data # as everything else gets permutated around
+  currentBestmatches = bestmatchesC(WeightVectors, persistentData, Columns)
+
 
   for(i in 1:Epochs){
 		# permutation of Data
@@ -89,10 +96,19 @@ esomTrainOnline<-function(WeightVectors,Data, StartRadius=10, EndRadius=1, Colum
     # perecent of necessary epochs done
     if(!is.null(ShinyProgress))
       ShinyProgress$inc(1/Epochs, detail = paste("Epoch",i,"done"))
+
+
+    nextBestmatches = bestmatchesC(WeightVectors, persistentData, Columns)
+    nrOfChanges = sum(apply((currentBestmatches != nextBestmatches), 1, any))
+    JumpingDataPointsHist = c(JumpingDataPointsHist, nrOfChanges)
+    currentBestmatches = nextBestmatches
+
+    print(paste0("Epoch: ",i," finished. ", nrOfChanges, " datapoints changed bestmatch"))
+
   }
 
   # give user feedback that training ist finished
   print("---- Esom Training Finished ----")
 
-  WeightVectors
+  return(list(WeightVectors=WeightVectors, JumpingDataPointsHist=JumpingDataPointsHist))
 }

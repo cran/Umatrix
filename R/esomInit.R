@@ -20,7 +20,7 @@ esomInit<-function(Data,Lines=50, Columns=82, method = "uni_min_max"){
 #								    from Data
 #						    uni_mean_2std <- uniform distribution based on mean and standard
 #								     deviation of Data
-#						    norm_mean_2std <- normal distribuation based on mean and standard
+#						    norm_mean_std <- normal distribuation based on mean and standard
 #								     deviation of Data
 
   # initialize the weight-vectors
@@ -66,7 +66,7 @@ esomInit<-function(Data,Lines=50, Columns=82, method = "uni_min_max"){
   }
 
   # choose values out of normal distribution with mean and standard deviation from Data
-  else if(initMethod == "norm_mean_2std"){
+  else if(initMethod == "norm_mean_std"){
     l = c()
     for(i in 1:ncol(Data)){
       l <- cbind(l,rnorm(Lines*Columns,

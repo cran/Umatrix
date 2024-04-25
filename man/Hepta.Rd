@@ -17,7 +17,7 @@ Classes 7, stored in \code{Hepta$Cls}
 \references{
 Ultsch, A.: U* C: Self-organized Clustering with Emergent Feature Maps, Lernen, Wissensentdeckung und Adaptivitaet (LWA), pp. 240-244, Saarbruecken, Germany, 2005. }
 \examples{
-data(Hepta)
-str(Hepta)
+data("Hepta")
+str("Hepta")
 }
 \keyword{datasets Hepta FCPS}

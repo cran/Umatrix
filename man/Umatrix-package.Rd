@@ -16,11 +16,11 @@ Ultsch, A.: Maps for the visualization of high-dimensional data spaces, Proc. Wo
 
 Ultsch, A.: U* C: Self-organized Clustering with Emergent Feature Maps, Lernen, Wissensentdeckung und Adaptivitaet (LWA), pp. 240-244, Saarbruecken, Germany, 2005.
 
-Loetsch, J., Ultsch, A.: Exploiting the Structures of the U-Matrix, in Villmann, T., Schleif, F.-M., Kaden, M. & Lange, M. (eds.), Proc. Advances in Self-Organizing Maps and Learning Vector Quantization, pp. 249-257, Springer International Publishing, Mittweida, Germany, 2014.
+Lotsch, J., Ultsch, A.: Exploiting the Structures of the U-Matrix, in Villmann, T., Schleif, F.-M., Kaden, M. & Lange, M. (eds.), Proc. Advances in Self-Organizing Maps and Learning Vector Quantization, pp. 249-257, Springer International Publishing, Mittweida, Germany, 2014.
 
-Ultsch, A., Behnisch, M., Loetsch, J.: ESOM Visualizations for Quality Assessment in Clustering, In Merenyi, E., Mendenhall, J. M. & O'Driscoll, P. (Eds.), Advances in Self-Organizing Maps and Learning Vector Quantization: Proceedings of the 11th International Workshop WSOM 2016, pp. 39-48, Houston, Texas, USA, January 6-8, 2016, (10.1007/978-3-319-28518-4_3), Cham, Springer International Publishing, 2016.
+Ultsch, A., Behnisch, M., Lotsch, J.: ESOM Visualizations for Quality Assessment in Clustering, In Merenyi, E., Mendenhall, J. M. & O'Driscoll, P. (Eds.), Advances in Self-Organizing Maps and Learning Vector Quantization: Proceedings of the 11th International Workshop WSOM 2016, pp. 39-48, Houston, Texas, USA, January 6-8, 2016, (10.1007/978-3-319-28518-4_3), Cham, Springer International Publishing, 2016.
 
-Thrun, M. C., Lerch, F., Loetsch, J., Ultsch, A.: Visualization and 3D Printing of Multivariate Data of Biomarkers, in Skala, V. (Ed.), International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision,Plzen, 2016.
+Thrun, M. C., Lerch, F., Lotsch, J., Ultsch, A.: Visualization and 3D Printing of Multivariate Data of Biomarkers, in Skala, V. (Ed.), International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision,Plzen, 2016.
 }
 
 \keyword{Umatrix}
