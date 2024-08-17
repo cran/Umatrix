@@ -1,4 +1,4 @@
-ca94adfc6f3722b6bbd329d334dbb118 *DESCRIPTION
+78e97aead08a2578bbcb1e5cc407df3b *DESCRIPTION
 ab69993d01474c88dd957ca801b0851b *NAMESPACE
 e6fadfd8a9679e603d91621736633726 *R/CheckBestmatches.R
 d272a2921f58fff35868f9e79bb0dd86 *R/CheckImx.R
@@ -22,7 +22,7 @@ ab07b076258939e2d721b49107e51e9d *R/esomProjection.R
 2907ff5958ae2a00e65b64fcb16ed00b *R/esomTrain.R
 a81354204ecaea43ec74a0f939b2e130 *R/esomTrainOnline.R
 b3b98c74587ea0a592204cbf24cf5817 *R/esomTrainStep.R
-f27f13c87cc92a0b268deae3c778ba1b *R/generate_data.R
+dbec257d76ce983993f5b42e33ba8da4 *R/generate_data.R
 ca430d78a5c5b486160f8de4571340e5 *R/gridNeighbourhoodPattern.R
 cff8f2cd84b436070259f15dc9e283f7 *R/iClassification.R
 da2107ee27c5d16e742e54540bffdf14 *R/iEsomTrain.R
@@ -46,8 +46,8 @@ b71fa3afa46695c1babfaf3d732d8f21 *R/xuniquePoints.R
 576bb9db161e925a83d5117622f0b419 *R/xzeros.R
 15eb6db70ee33d0346ff76ba66fcfc95 *data/BMUHepta.rda
 5b4d243b0ca74809d9a1367be6333e1c *data/Hepta.rda
-caf34993e3974fb47eb13816b4ee8c23 *man/BMUHepta.Rd
-9a31132bf4130e12b1380c47c537cc6a *man/Hepta.Rd
+58646e2c93c2e2f54e4ed7ba47080b5f *man/BMUHepta.Rd
+764f68816e31e328bd094939e5e477d3 *man/Hepta.Rd
 7253e703fa78b916d00a10359f84f740 *man/Umatrix-package.Rd
 c3cc388bf648cccdffafa76d15cc94ba *man/calculate_Delauny_radius.Rd
 f9561de59f56cc208a287c734e891f66 *man/esomTrain.Rd

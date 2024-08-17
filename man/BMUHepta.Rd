@@ -21,4 +21,4 @@ Ultsch A, Lotsch J: Machine-learned cluster identification in high-dimensional d
 data("BMUHepta")
 str("BMUHepta")
 }
-\keyword{datasets Hepta FCPS ESOM}
+\keyword{datasets}

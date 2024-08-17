@@ -8,10 +8,9 @@ generate_data <- function(Data, density_radius, Cls = NULL, gen_per_data = 10) {
   limit_ab <- 0.72
   limit_bc <- 1.22
 
-  # Fraction of data in each set (A, B, C)
+  # Fraction of data in each set (A, B)
   percent_a <- 0.80
   percent_b <- 0.15
-  percent_c <- 1 - (percent_a + percent_b)
 
   # Radius for data generation (shrink to below half of the intercluster distance)
   r <- 0.4 * density_radius
@@ -40,7 +39,7 @@ generate_data <- function(Data, density_radius, Cls = NULL, gen_per_data = 10) {
   # Determine the number of data points in each set (A, B, C)
   n_a <- round(n_generated * percent_a)
   n_b <- round(n_generated * percent_b)
-  n_c <- round(n_generated * percent_c)
+  n_c <- n_generated - n_a - n_b
 
   # Generate the sigmoid lengths for each set
   sigmoid_lengths <- c(
